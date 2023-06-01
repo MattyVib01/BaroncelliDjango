@@ -13,7 +13,7 @@
     <div class="col">
         <h1>{{ prodotto.nome }}</h1>
         <h4>{{ prodotto.descrizione }}</h4>
-        <a href='#'>Aggiungi al carrello</a>
+        <a href='{% url 'add-to-cart' prodotto.id%}'>Aggiungi al carrello</a>
     </div>
   </div>
 </div>

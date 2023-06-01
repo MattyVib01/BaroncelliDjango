@@ -1,0 +1,16 @@
+{% extends 'principale/base.html' %}
+{% block title %}
+    Carrello
+{% endblock %}
+{% block content %}
+<h1>Carrello</h1>
+    {% for item in cart %}
+        <p>
+            <b>Oggetto: {{ item.product.nome }} --------> </b>
+            Quantità: {{ item.quantity }}
+        </p>
+    {% endfor %}
+
+    <strong>Costo totale:</strong> {{ cart.get_total_cost }}
+
+{% endblock %}
