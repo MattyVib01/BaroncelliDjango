@@ -47,3 +47,9 @@ class Cart(object):
             self.cart[str(p)]['product'] = Prodotto.objects.get(pk=p)
 
         return int(sum(item['product'].prezzo * item['quantity'] for item in self.cart.values())) /100
+
+    def remove(self, product_id):
+        if str(product_id) in self.cart:
+             self.cart.pop(str(product_id))
+
+             self.save()
