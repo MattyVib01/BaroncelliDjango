@@ -31,21 +31,6 @@ class Prodotto(models.Model):
 
 
 
-class Carrello(models.Model):
-    user=models.ForeignKey(User, on_delete=models.CASCADE)
-    prodotti=models.ManyToManyField('Prodotto', through='ProdottoCarrello')
-
-    def __str__(self):
-        return f'Carrello di {self.user.username}'
-
-class ProdottoCarrello(models.Model):
-    carrello=models.ForeignKey(Carrello, on_delete=models.CASCADE)
-    prodotto=models.ForeignKey(Prodotto,on_delete=models.CASCADE)
-    quantità=models.PositiveIntegerField()
-
-    def __str__(self):
-        return f'{self.quantità}x{self.prodotto.nome}'
-
 
 
 
