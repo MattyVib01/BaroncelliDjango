@@ -1,0 +1,17 @@
+{% extends 'principale/base.html' %}
+
+{% block title %}
+    I miei ordini
+{% endblock %}
+
+{% block content %}
+
+    {% for orderitem in orderitems %}
+    <div>
+        <b>{{ orderitem.order.created_at }}</b>
+    {{ orderitem.product }}
+    x{{ orderitem.quantity }}
+    </div>
+{% endfor %}
+
+{% endblock %}
