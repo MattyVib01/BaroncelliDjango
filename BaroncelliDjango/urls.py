@@ -20,7 +20,7 @@ from django.urls import path, include
 from principale.views import homepage,search
 from prodotti.views import detail, add_to_cart, cart_view, remove_from_cart, change_quantity
 from register.views import register
-from ordini.views import checkout
+from ordini.views import checkout,my_orders
 
 
 
@@ -36,4 +36,5 @@ urlpatterns = [
     path('remove-from-cart/<int:product_id>/',remove_from_cart,name='remove_from_cart'),
     path('change-quantity/<int:product_id>/', change_quantity, name='change_quantity'),
     path('cart/checkout/',checkout,name='checkout'),
+    path('myorders/', my_orders, name='my_orders'),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

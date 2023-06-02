@@ -4,6 +4,7 @@ from .forms import OrderForm
 from .models import Ordine, OrderItem
 
 
+
 # Create your views here.
 
 def checkout(request):
@@ -32,3 +33,13 @@ def checkout(request):
         'form':form,
     }
     return render(request,'ordini/checkout.html', context)
+
+
+def my_orders(request):
+        order=Ordine.objects.filter(created_by__username=request.user)
+        orderitems=OrderItem.objects.filter(order__created_by__username=request.user)
+        context={
+            'order':order,
+            'orderitems':orderitems,
+        }
+        return render(request,'ordini/myorders.html', context)
