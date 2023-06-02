@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import path, include
 from principale.views import homepage,search
-from prodotti.views import detail, add_to_cart, cart_view, remove_from_cart
+from prodotti.views import detail, add_to_cart, cart_view, remove_from_cart, change_quantity
 from register.views import register
 
 
@@ -33,6 +33,6 @@ urlpatterns = [
     path('add-to-cart/<int:product_id>/', add_to_cart,name='add-to-cart'),
     path('cart/',cart_view, name='cart_view'),
     path('remove-from-cart/<int:product_id>/',remove_from_cart,name='remove_from_cart'),
-
+    path('change-quantity/<int:product_id>/', change_quantity, name='change_quantity')
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
