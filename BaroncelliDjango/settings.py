@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'principale',
     'prodotti',
     'register',
+    'ordini',
 ]
 
 MIDDLEWARE = [

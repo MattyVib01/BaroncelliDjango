@@ -4,6 +4,7 @@
 {% endblock %}
 {% block content %}
 <h1>Carrello</h1>
+    {% if cart|length %}
     {% for item in cart %}
         <p>
             <b>Oggetto: {{ item.product.nome }} --------> </b>
@@ -16,4 +17,9 @@
 
     <strong>Costo totale:</strong> {{ cart.get_total_cost }}
 
+    <a href="{% url 'checkout' %}">Checkout</a>
+
+    {% else %}
+        <h1>No prodotti nel carrello</h1>
+    {% endif %}
 {% endblock %}
