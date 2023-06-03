@@ -28,6 +28,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS=[
+    'https://web-production-e8af.up.railway.app/home/',
+    'https://web-production-e8af.up.railway.app/search/',
+    'https://web-production-e8af.up.railway.app/login/',
+]
+
 CART_SESSION_ID='cart'
 
 SESSION_COOKIE_AGE=86400
