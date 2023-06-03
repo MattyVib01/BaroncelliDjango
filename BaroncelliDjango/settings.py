@@ -28,9 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS=[
-    "https://web-production-e8af.up.railway.app/"
-]
 
 CART_SESSION_ID='cart'
 
@@ -47,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'crispy_bootstrap5',
+    "corsheaders",
     'principale',
     'prodotti',
     'register',
@@ -54,6 +52,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -63,6 +62,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    "https://web-production-e8af.up.railway.app",
+]
+
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://web-production-e8af.up.railway.app"
+]
+
+
 
 ROOT_URLCONF = 'BaroncelliDjango.urls'
 
