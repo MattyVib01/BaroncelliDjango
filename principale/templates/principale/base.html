@@ -7,10 +7,24 @@
     <title>{% block title %}{% endblock %}</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
-<body>
-    <nav class="navbar bg-body-tertiary">
-    <div class="container-fluid">
-        <a href="{% url 'home' %}">Navbar</a>
+<style>
+    a:link {
+        text-decoration: none;
+        color: white;
+    }
+    body{
+        font-family: sans-serif;
+    }
+</style>
+<body style="margin-left: 20px">
+    <nav class="navbar bg-dark" style="margin-left: -20px" >
+    <div class="container-fluid" >
+        <div align="left">
+        <a href="{% url 'home' %}" style="color: white; margin: 10px" >Navbar</a>
+        <a href="{% url 'my_orders' %}" style="color: white; margin: 10px">I miei ordini</a>
+        <a href="{% url 'cart_view' %}" style="color: white; margin: 10px">Carrello &#128722;</a>
+        <a href="{% url 'cart_view' %}" style="color: white; margin: 10px">Il mio profilo</a>
+        </div>
         <form class="d-flex"  method="POST" action="{% url 'search'%}">
          {% csrf_token %}
         <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search" name="searched">

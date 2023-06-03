@@ -3,23 +3,41 @@
     Carrello
 {% endblock %}
 {% block content %}
-<h1>Carrello</h1>
+<h1 style="color: #708090">&#128722;Carrello </h1>
+    <br>
     {% if cart|length %}
     {% for item in cart %}
-        <p>
-            <b>Oggetto: {{ item.product.nome }} --------> </b>
-               Quantità: {{ item.quantity }}
-               <a href="{% url 'remove_from_cart' item.product.id %}">Rimuovi prodotto</a>
-               <a href="{% url 'change_quantity' item.product.id %}?action=increase">Increase</a>
-        <a href="{% url 'change_quantity' item.product.id %}?action=decrease">Decrease</a>
+   <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{item.product.immagine.url}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ item.product.nome}}</h5>
+        <p class="card-text">€ {{ item.product.prezzo }}
+
         </p>
+          <p class="card-text"> Quantità:
+
+
+              <a href="{% url 'change_quantity' item.product.id %}?action=decrease" type="button" class="btn btn-dark">-</a>
+            {{ item.quantity }}
+                <a href="{% url 'change_quantity' item.product.id %}?action=increase" type="button" class="btn btn-dark">+</a>
+          </p>
+          <a href="{% url 'remove_from_cart' item.product.id %}" type="button" class="btn btn-dark">Rimuovi prodotto</a>
+      </div>
+    </div>
+  </div>
+</div>
     {% endfor %}
 
-    <strong>Costo totale:</strong> {{ cart.get_total_cost }}
+    <h4><strong>Costo totale:</strong> € {{ cart.get_total_cost }}</h4>
 
-    <a href="{% url 'checkout' %}">Checkout</a>
+        <br><br>
+    <a href="{% url 'checkout' %}" class="btn btn-success">Procedi all'ordine</a>
 
     {% else %}
-        <h1>No prodotti nel carrello</h1>
+        <h2>Il carrello è vuoto</h2>
     {% endif %}
 {% endblock %}
