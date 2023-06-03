@@ -29,9 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS=[
-    'https://web-production-e8af.up.railway.app/home/',
-    'https://web-production-e8af.up.railway.app/search/',
-    'https://web-production-e8af.up.railway.app/login/',
+    "https://web-production-e8af.up.railway.app/"
 ]
 
 CART_SESSION_ID='cart'
