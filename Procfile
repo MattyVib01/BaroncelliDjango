@@ -1,1 +1,1 @@
-web: gunicorn BaroncelliDjango.wsgi
+web: gunicorn BaroncelliDjango.wsgi --log-file -
