@@ -33,7 +33,7 @@ HomePage
         <div class="col">
             <a href="{% url 'detail' p.id%}">
                 <div class="card" style="width: 18rem; margin-bottom: 20px; padding: 0px">
-  <img src="{{ p.immagine.url }}" class="card-img-top" style="height: 300px;object-fit: contain;" >
+  <img src="{{ p.immagine.url }}" class="card-img-top" >
   <div class="card-body">
     <h5 class="card-title">{{ p.nome}}</h5>
     <p class="card-text">€ {{ p.prezzo }}</p>

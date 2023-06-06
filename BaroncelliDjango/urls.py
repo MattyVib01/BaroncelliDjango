@@ -27,8 +27,8 @@ from ordini.views import checkout,my_orders
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',homepage, name='home'),
-    path('category/<int:pk>',detail, name='detail'),
-    path('<int:pk>', category, name='category' ),
+    path('<int:pk>',detail, name='detail'),
+    path('category/<int:pk>', category, name='category' ),
     path('register/', register, name='register'),
     path('', include('django.contrib.auth.urls')),
     path('search/', search, name='search'),

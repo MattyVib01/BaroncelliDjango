@@ -3,7 +3,7 @@ from prodotti.models import Categoria,Prodotto
 
 # Create your views here.
 def homepage(request):
-    prodotto=Prodotto.objects.all()[0:6]
+    prodotto=Prodotto.objects.all()[0:9]
     categorie=Categoria.objects.all()
     context={
         'prodotto': prodotto,

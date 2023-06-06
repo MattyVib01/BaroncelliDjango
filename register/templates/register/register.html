@@ -7,9 +7,12 @@ Crea un account
 {% load crispy_forms_tags %}
 
 {% block content %}
+
     <div class="container">
   <div class="row">
     <div class="col-sm">
+        <h3 style="color: #708090">Iscriviti, è gratis e lo sarà sempre !</h3>
+        <br>
           <form method="POST" class="form-group">
         {% csrf_token %}
         {{ form | crispy }}
