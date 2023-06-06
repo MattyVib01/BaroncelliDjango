@@ -1,0 +1,30 @@
+{% extends 'principale/base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+
+{% block content %}
+    <h1 style="color: #708090"> Ecco i risultati della categoria:  {{ categoria.titolo }} </h1>
+    <br>
+   {% for p in prod_categoria %}
+        <a href="{% url 'detail' p.id%}">
+                <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{p.immagine.url}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ p.nome}}</h5>
+        <p class="card-text">$ {{ p.prezzo }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+            </a>
+   {% endfor %}
+
+
+{% endblock %}

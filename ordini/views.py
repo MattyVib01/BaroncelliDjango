@@ -38,6 +38,7 @@ def checkout(request):
     return render(request,'ordini/checkout.html', context)
 
 
+@login_required(login_url='/login/')
 def my_orders(request):
         order=Ordine.objects.filter(created_by__username=request.user)
         orderitems=OrderItem.objects.filter(order__created_by__username=request.user)

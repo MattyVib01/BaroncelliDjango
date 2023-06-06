@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Prodotto, Categoria
 from .cart import Cart
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -21,25 +22,27 @@ def category(request, pk):
     }
     return render(request, 'prodotti/category.html', context )
 
+@login_required(login_url='/login/')
 def add_to_cart(request, product_id):
     cart = Cart(request)
     cart.add(product_id)
 
     return redirect('cart_view')
 
-
+@login_required(login_url='/login/')
 def cart_view(request):
     cart=Cart(request)
 
     return render(request, 'prodotti/cart_view.html', {'cart':cart})
 
+@login_required(login_url='/login/')
 def remove_from_cart(request, product_id):
     cart=Cart(request)
     cart.remove(product_id)
 
     return redirect('cart_view')
 
-
+@login_required(login_url='/login/')
 def change_quantity(request, product_id):
     action=request.GET.get('action','')
     if action:

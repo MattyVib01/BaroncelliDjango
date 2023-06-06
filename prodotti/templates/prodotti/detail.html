@@ -17,6 +17,11 @@
         <h4>{{ prodotto.categoria }}</h4>
         <h4>€ {{ prodotto.prezzo }}</h4>
         <a href='{% url 'add-to-cart' prodotto.id%}'>Aggiungi al carrello</a>
+        {% if request.user.is_authenticated %}
+            {% else %}
+            <b style="color: red"><p>*  Senza un account non ti è permesso aggiungere prodotti al carrello</p></b>
+        {% endif %}
+
     </div>
   </div>
 </div>
