@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import path, include
 from principale.views import homepage,search
-from prodotti.views import detail, add_to_cart, cart_view, remove_from_cart, change_quantity
+from prodotti.views import detail, add_to_cart, cart_view, remove_from_cart, change_quantity, category
 from register.views import register
 from ordini.views import checkout,my_orders
 
@@ -26,8 +26,9 @@ from ordini.views import checkout,my_orders
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/',homepage, name='home'),
-    path('<int:pk>',detail, name='detail'),
+    path('',homepage, name='home'),
+    path('category/<int:pk>',detail, name='detail'),
+    path('<int:pk>', category, name='category' ),
     path('register/', register, name='register'),
     path('', include('django.contrib.auth.urls')),
     path('search/', search, name='search'),

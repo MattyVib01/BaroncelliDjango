@@ -4,14 +4,32 @@
     I miei ordini
 {% endblock %}
 
-{% block content %}
 
-    {% for orderitem in orderitems %}
-    <div>
-        <b>{{ orderitem.order.created_at }}</b>
-    {{ orderitem.product }}
-    x{{ orderitem.quantity }}
-    </div>
-{% endfor %}
+{% block content %}
+    <h1 style="color: #708090">I miei ordini </h1>
+    <br>
+    {% if orderitems %}
+        {% for orderitem in orderitems %}
+            <div>
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{ orderitem.product.immagine.url }}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><b>{{ orderitem.product.nome }}</b></h5>
+                                <p class="card-text">Quantità: {{ orderitem.quantity }}</p>
+                                <p class="card-text">Data dell'ordine: {{ orderitem.order.created_at }}</p>
+                                <p class="card-text">Stato dell'ordine: Non consegnato</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h2>Non hai effettuato alcun ordine</h2>
+    {% endif %}
 
 {% endblock %}

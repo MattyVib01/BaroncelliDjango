@@ -4,10 +4,13 @@ from prodotti.models import Categoria,Prodotto
 # Create your views here.
 def homepage(request):
     prodotto=Prodotto.objects.all()[0:6]
+    categorie=Categoria.objects.all()
     context={
-        'prodotto': prodotto
+        'prodotto': prodotto,
+        'categorie':categorie
     }
     return render(request, 'principale/home.html', context)
+
 
 
 def search(request):

@@ -5,14 +5,17 @@
 {% endblock %}
 
 {% block content %}
+    <br><br>
 <div class="container text-center">
   <div class="row align-items-start">
-    <div class="col">
+    <div class="col-md">
       <img src="{{ prodotto.immagine.url }}" style="max-width: 500px">
     </div>
-    <div class="col">
-        <h1>{{ prodotto.nome }}</h1>
-        <h4>{{ prodotto.descrizione }}</h4>
+    <div class="col-md" align="left">
+        <h1><b>{{ prodotto.nome }}</b></h1>
+        <h5>{{ prodotto.descrizione }}</h5>
+        <h4>{{ prodotto.categoria }}</h4>
+        <h4>€ {{ prodotto.prezzo }}</h4>
         <a href='{% url 'add-to-cart' prodotto.id%}'>Aggiungi al carrello</a>
     </div>
   </div>
