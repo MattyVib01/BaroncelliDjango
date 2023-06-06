@@ -4,6 +4,7 @@ from prodotti.models import Categoria,Prodotto
 # Create your views here.
 def homepage(request):
     prodotto=Prodotto.objects.all()[0:9]
+    prodotto=reversed(prodotto)
     categorie=Categoria.objects.all()
     context={
         'prodotto': prodotto,
