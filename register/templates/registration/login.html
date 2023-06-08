@@ -21,8 +21,9 @@
         {{ form | crispy }}
         <button type="submit" class="btn btn-success">Accedi</button>
     </form>
-        <br>
-       <p>Se non hai ancora un account. <a href="/register">Registrati qui</a></p>
+        <br><br>
+       <p>Se non hai ancora un account. <br> <a href="{% url 'register'%}" type="button" class="btn btn-primary">Registrati</a>
+
     </div>
     <div class="col-md">
 
